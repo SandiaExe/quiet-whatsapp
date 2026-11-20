@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Quiet WhatsApp</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main id="home" class="view">
+    <div id="master"></div>
+
+    <h2 data-i18n="sectionHide"></h2>
+    <div id="hide"></div>
+
+    <h2>
+      <span data-i18n="sectionBlur"></span>
+      <span class="presets">
+        <button id="all" data-i18n="all"></button>
+        <button id="none" data-i18n="none"></button>
+      </span>
+    </h2>
+    <div id="blur"></div>
+    <label class="slider">
+      <span data-i18n="intensity"></span>
+      <input id="amount" type="range" min="2" max="20" />
+    </label>
+
+    <hr />
+    <button id="openThemes" class="row">
+      <svg class="mark palette" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0 0 18c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.300-.3-.4-.5-.8-.5-1.300 0-1.100.9-1.900 2-1.900h2.300A4.700 4.700 0 0 0 21 9.800C21 5.900 17 3 12 3ZM6.500 12a1.500 1.500 0 1 1 0-3 1.500 1.500 0 0 1 0 3Zm3-4a1.500 1.500 0 1 1 0-3 1.500 1.500 0 0 1 0 3Zm5 0a1.500 1.500 0 1 1 0-3 1.500 1.500 0 0 1 0 3Zm3 4a1.500 1.500 0 1 1 0-3 1.500 1.500 0 0 1 0 3Z"/></svg>
+      <span class="grow" data-i18n="themes"></span>
+      <span id="themeName" class="muted"></span>
+      <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+    </button>
+  </main>
+
+  <main id="themes" class="view" hidden>
+    <button id="back" class="row back">
+      <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+      <span data-i18n="back"></span>
+    </button>
+    <hr />
+    <div id="themeList" role="radiogroup"></div>
+  </main>
+
+  <script src="themes.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

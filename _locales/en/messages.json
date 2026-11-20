@@ -1,0 +1,104 @@
+{
+  "extName": {
+    "message": "Quiet WhatsApp"
+  },
+  "extDescription": {
+    "message": "Hide calls, status, channels, communities and Meta AI in WhatsApp Web, blur private content and choose color themes."
+  },
+  "enabled": {
+    "message": "Extension enabled"
+  },
+  "sectionHide": {
+    "message": "Hide"
+  },
+  "sectionBlur": {
+    "message": "Blur"
+  },
+  "all": {
+    "message": "All"
+  },
+  "none": {
+    "message": "None"
+  },
+  "hideCalls": {
+    "message": "Calls"
+  },
+  "hideStatus": {
+    "message": "Status"
+  },
+  "hideChannels": {
+    "message": "Channels"
+  },
+  "hideCommunities": {
+    "message": "Communities"
+  },
+  "hideMetaAI": {
+    "message": "Meta AI"
+  },
+  "hideBadge": {
+    "message": "Notification badges"
+  },
+  "blurText": {
+    "message": "Messages"
+  },
+  "blurTime": {
+    "message": "Time and date"
+  },
+  "blurMedia": {
+    "message": "Photos and videos"
+  },
+  "blurNames": {
+    "message": "Names"
+  },
+  "blurAvatars": {
+    "message": "Profile photos"
+  },
+  "blurPreviews": {
+    "message": "Chat previews"
+  },
+  "blurReveal": {
+    "message": "Reveal on hover"
+  },
+  "intensity": {
+    "message": "Intensity"
+  },
+  "themes": {
+    "message": "Themes"
+  },
+  "back": {
+    "message": "Back"
+  },
+  "themeDefault": {
+    "message": "Default"
+  },
+  "theme_snow": {
+    "message": "Snow"
+  },
+  "theme_olive": {
+    "message": "Olive"
+  },
+  "theme_lagoon": {
+    "message": "Lagoon"
+  },
+  "theme_emerald": {
+    "message": "Emerald"
+  },
+  "theme_glacier": {
+    "message": "Glacier"
+  },
+  "theme_rose": {
+    "message": "Rose"
+  },
+  "theme_ember": {
+    "message": "Ember"
+  },
+  "theme_amethyst": {
+    "message": "Amethyst"
+  },
+  "theme_amber": {
+    "message": "Amber"
+  },
+  "theme_graphite": {
+    "message": "Graphite"
+  }
+}

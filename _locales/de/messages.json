@@ -1,0 +1,104 @@
+{
+  "extName": {
+    "message": "Quiet WhatsApp"
+  },
+  "extDescription": {
+    "message": "Blende Anrufe, Status, Kanäle, Communities und Meta AI in WhatsApp Web aus, zeichne Privates weich und wähle Farbdesigns."
+  },
+  "enabled": {
+    "message": "Erweiterung aktiv"
+  },
+  "sectionHide": {
+    "message": "Ausblenden"
+  },
+  "sectionBlur": {
+    "message": "Weichzeichnen"
+  },
+  "all": {
+    "message": "Alle"
+  },
+  "none": {
+    "message": "Keine"
+  },
+  "hideCalls": {
+    "message": "Anrufe"
+  },
+  "hideStatus": {
+    "message": "Status"
+  },
+  "hideChannels": {
+    "message": "Kanäle"
+  },
+  "hideCommunities": {
+    "message": "Communities"
+  },
+  "hideMetaAI": {
+    "message": "Meta AI"
+  },
+  "hideBadge": {
+    "message": "Benachrichtigungszähler"
+  },
+  "blurText": {
+    "message": "Nachrichten"
+  },
+  "blurTime": {
+    "message": "Uhrzeit und Datum"
+  },
+  "blurMedia": {
+    "message": "Fotos und Videos"
+  },
+  "blurNames": {
+    "message": "Namen"
+  },
+  "blurAvatars": {
+    "message": "Profilbilder"
+  },
+  "blurPreviews": {
+    "message": "Chat-Vorschau"
+  },
+  "blurReveal": {
+    "message": "Beim Überfahren zeigen"
+  },
+  "intensity": {
+    "message": "Stärke"
+  },
+  "themes": {
+    "message": "Designs"
+  },
+  "back": {
+    "message": "Zurück"
+  },
+  "themeDefault": {
+    "message": "Standard"
+  },
+  "theme_snow": {
+    "message": "Schnee"
+  },
+  "theme_olive": {
+    "message": "Olive"
+  },
+  "theme_lagoon": {
+    "message": "Lagune"
+  },
+  "theme_emerald": {
+    "message": "Smaragd"
+  },
+  "theme_glacier": {
+    "message": "Gletscher"
+  },
+  "theme_rose": {
+    "message": "Rose"
+  },
+  "theme_ember": {
+    "message": "Glut"
+  },
+  "theme_amethyst": {
+    "message": "Amethyst"
+  },
+  "theme_amber": {
+    "message": "Bernstein"
+  },
+  "theme_graphite": {
+    "message": "Graphit"
+  }
+}

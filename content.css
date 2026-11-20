@@ -1,0 +1,170 @@
+[data-nwd-hidden],
+[data-nwd-tip] {
+  display: none !important;
+}
+
+/* ---- Barra lateral ----
+   Cada apartado es <div><span><div><button aria-label=...>. Se oculta el <div> exterior con :has(),
+   así no depende de que el JS llegue a tiempo cuando WhatsApp vuelve a pintar la barra. */
+html[data-nwd-on~="hide-calls"] [data-testid="navbar-primary-section"] div:has(> span > div > button:is([aria-label="Llamadas" i], [aria-label="Calls" i], [aria-label="Chamadas" i])),
+html[data-nwd-on~="hide-status"] [data-testid="navbar-primary-section"] div:has(> span > div > button:is([aria-label="Estados" i], [aria-label="Status" i])),
+html[data-nwd-on~="hide-channels"] [data-testid="navbar-primary-section"] div:has(> span > div > button:is([aria-label="Canales" i], [aria-label="Channels" i], [aria-label="Canais" i])),
+html[data-nwd-on~="hide-communities"] [data-testid="navbar-primary-section"] div:has(> span > div > button:is([aria-label="Comunidades" i], [aria-label="Communities" i])),
+html[data-nwd-on~="hide-meta"] [data-testid="navbar-primary-section"] div:has(> span > div > button:is([aria-label="Meta AI" i], [aria-label="Meta IA" i])),
+html[data-nwd-on~="hide-meta"] [data-testid="navbar-primary-section"] hr {
+  display: none !important;
+}
+
+/* Cualquier otro resto de Meta IA fuera de los chats */
+html[data-nwd-on~="hide-meta"] :is([aria-label*="Meta AI" i], [aria-label*="Meta IA" i], [title*="Meta AI" i], [title*="Meta IA" i]):not(#pane-side *, #main *) {
+  display: none !important;
+}
+
+/* Sin notificaciones: el hueco vacío junto al icono de cada botón es donde WhatsApp pone el punto/contador */
+html[data-nwd-on~="no-badge"] [data-navbar-item] > div > div > div:nth-child(2),
+/* ...y el círculo verde que WhatsApp pone junto al botón (hermano, con role="status") */
+html[data-nwd-on~="no-badge"] [data-navbar-item] ~ * [role="status"] {
+  display: none !important;
+}
+
+/* ---- Difuminado ----
+   content.js etiqueta cada elemento una sola vez:
+     data-nwd="text|name|time|preview"  -> texto
+     data-nwd-img="media|avatar"        -> imágenes (data-nwd-box en su contenedor)
+   Aquí solo se decide qué etiquetas se difuminan según los tokens de <html data-nwd-on>. */
+html[data-nwd-on~="text"] [data-nwd="text"],
+html[data-nwd-on~="names"] [data-nwd="name"],
+html[data-nwd-on~="time"] [data-nwd="time"],
+html[data-nwd-on~="previews"] [data-nwd="preview"] {
+  filter: blur(var(--nwd-amt, 6px));
+}
+
+/* Las imágenes se escalan y su contenedor recorta: así el borde difuminado
+   no deja aro ni halo de color alrededor. */
+html[data-nwd-on~="media"] [data-nwd-img="media"],
+html[data-nwd-on~="avatars"] [data-nwd-img="avatar"] {
+  filter: blur(var(--nwd-amt, 6px));
+  transform: scale(1.3);
+}
+html[data-nwd-on~="media"] [data-nwd-box="media"],
+html[data-nwd-on~="avatars"] [data-nwd-box="avatar"] {
+  overflow: hidden !important;
+}
+html[data-nwd-on~="avatars"] [data-nwd-box="avatar"] {
+  border-radius: 50%;
+}
+
+/* Revelar: solo al pasar el cursor sobre el propio elemento difuminado */
+html[data-nwd-on~="reveal"] :is([data-nwd], [data-nwd-img]):hover {
+  filter: none !important;
+  transform: none !important;
+  transition: filter 0.15s, transform 0.15s;
+}
+
+/* Red de seguridad: lo que aún no está etiquetado nace difuminado, así nunca se ve ni un fotograma.
+   (Sin transición al difuminar: la transición solo se usa al revelar.) */
+html[data-nwd-on~="any"] :is(#pane-side [role="row"], #pane-side [role="listitem"], #main [data-id], #main [role="row"]):not([data-nwd-seen]),
+html:is([data-nwd-on~="media"], [data-nwd-on~="avatars"]) #app :is(img, video, canvas):not([data-nwd-img], .emoji, [data-plain-text]) {
+  filter: blur(var(--nwd-amt, 6px));
+}
+
+/* ---- Aro de estados alrededor de las fotos de perfil ----
+   El avatar es un <svg> con <mask>. El aro son <circle> con trazo discontinuo (un tramo por historia):
+   verde = stroke="var(--WDS-persistent-activity-indicator)", gris = stroke="var(--WDS-systems-status-seen)".
+   El contorno normal de la foto (outline-profile-photo) se respeta. */
+html[data-nwd-on~="hide-status"] svg:has(> mask) [stroke]:not([stroke*="outline-profile-photo"], [stroke="none"], [stroke="transparent"]),
+html[data-nwd-on~="hide-status"] svg :is([stroke*="activity-indicator" i], [stroke*="status" i], circle[stroke-dasharray]) {
+  display: none !important;
+}
+html[data-nwd-on~="hide-status"],
+html[data-nwd-on~="hide-status"] body,
+html[data-nwd-on~="hide-status"] #app {
+  --status-ring-unread: transparent !important;
+  --status-ring-unread-close-friends: transparent !important;
+  --WDS-systems-status-seen: transparent !important;
+}
+
+/* ---- Temas ----
+   WhatsApp pinta toda la interfaz con tokens --WDS-*; se redefinen aquí desde la paleta
+   (--card-bg, --input-bg, --accent... y los --nwd-* de deriveTheme, que pone content.js). Se declaran en varios ancestros porque
+   no se sabe en cuál define WhatsApp los suyos; con !important gana el más cercano a cada elemento. */
+html[data-nwd-on~="themed"],
+html[data-nwd-on~="themed"] body,
+html[data-nwd-on~="themed"] #app,
+html[data-nwd-on~="themed"] .app-wrapper-web,
+html[data-nwd-on~="themed"] [data-testid="wa-web-main-screen"],
+html[data-nwd-on~="themed"] #main {
+  /* superficies: paneles, lista de chats, cabeceras, barra lateral */
+  --WDS-surface-default: var(--card-bg) !important;
+  --WDS-surface-default-RGB: var(--nwd-card-rgb) !important;
+  --WDS-background-wash-plain: var(--card-bg) !important;
+  --WDS-background-wash-plain-RGB: var(--nwd-card-rgb) !important;
+  --WDS-background-wash-inset: var(--card-bg) !important;
+  --WDS-background-wash-inset-RGB: var(--nwd-card-rgb) !important;
+  --WDS-background-elevated-wash-plain: var(--nwd-elevated) !important;
+  --WDS-background-elevated-wash-plain-RGB: var(--nwd-elevated-rgb) !important;
+  --WDS-background-elevated-wash-inset: var(--nwd-elevated) !important;
+  --WDS-background-elevated-wash-inset-RGB: var(--nwd-elevated-rgb) !important;
+  --WDS-surface-elevated-default: var(--nwd-elevated) !important;
+  --WDS-surface-elevated-default-RGB: var(--nwd-elevated-rgb) !important;
+  --WDS-surface-emphasized: var(--nwd-elevated) !important;
+  --WDS-surface-emphasized-RGB: var(--nwd-elevated-rgb) !important;
+  --WDS-components-surface-nav-bar: var(--card-bg) !important;
+  --WDS-components-surface-nav-bar-RGB: var(--nwd-card-rgb) !important;
+  --WDS-systems-chat-surface-tray: var(--card-bg) !important;
+  --WDS-systems-chat-surface-tray-RGB: var(--nwd-card-rgb) !important;
+  --WDS-systems-bubble-surface-system: var(--card-bg) !important;
+  --WDS-systems-bubble-surface-system-RGB: var(--nwd-card-rgb) !important;
+  --WDS-systems-bubble-surface-e2e: var(--card-bg) !important;
+  --WDS-systems-bubble-surface-e2e-RGB: var(--nwd-card-rgb) !important;
+  --WDS-systems-bubble-surface-business: var(--card-bg) !important;
+  --WDS-systems-bubble-surface-business-RGB: var(--nwd-card-rgb) !important;
+  --WDS-surface-pressed: var(--nwd-pressed) !important;
+
+  /* campos: buscador, compositor, burbuja recibida */
+  --WDS-surface-elevated-emphasized: var(--input-bg) !important;
+  --WDS-surface-elevated-emphasized-RGB: var(--nwd-input-rgb) !important;
+  --WDS-systems-chat-surface-composer: var(--input-bg) !important;
+  --WDS-systems-chat-surface-composer-RGB: var(--nwd-input-rgb) !important;
+  --WDS-systems-bubble-surface-incoming: var(--nwd-in) !important;
+  --WDS-systems-bubble-surface-incoming-RGB: var(--nwd-in-rgb) !important;
+
+  /* fondo de la conversación y su dibujo */
+  --WDS-systems-chat-background-wallpaper: var(--nwd-wall) !important;
+  --WDS-systems-chat-foreground-wallpaper: var(--nwd-doodle) !important;
+
+  /* acento: botones, enlaces, chip y fila seleccionados, burbuja enviada */
+  --WDS-accent: var(--nwd-accent) !important;
+  --WDS-accent-RGB: var(--nwd-accent-rgb) !important;
+  --WDS-accent-emphasized: var(--accent-hover) !important;
+  --WDS-accent-deemphasized: var(--nwd-soft) !important;
+  --WDS-accent-deemphasized-RGB: var(--nwd-soft-rgb) !important;
+  --WDS-content-action-emphasized: var(--nwd-action) !important;
+  --WDS-content-external-link: var(--nwd-link) !important;
+  --WDS-content-read: var(--nwd-link) !important;
+  --WDS-content-on-accent: var(--nwd-on-accent) !important;
+  --WDS-components-filter-surface-selected: var(--nwd-soft) !important;
+  --WDS-components-filter-surface-selected-RGB: var(--nwd-soft-rgb) !important;
+  --WDS-components-active-list-row: color-mix(in srgb, var(--nwd-accent) 20%, transparent) !important;
+  --WDS-surface-highlight: color-mix(in srgb, var(--nwd-accent) 12%, transparent) !important;
+  --WDS-systems-bubble-surface-outgoing: var(--nwd-out) !important;
+  --WDS-systems-bubble-surface-outgoing-RGB: var(--nwd-out-rgb) !important;
+
+  /* texto y líneas: dependen de si el tema es claro u oscuro, no del modo de WhatsApp */
+  --WDS-content-default: var(--nwd-ink) !important;
+  --WDS-content-default-RGB: var(--nwd-ink-rgb) !important;
+  --WDS-content-action-default: var(--nwd-ink) !important;
+  --WDS-content-action-default-RGB: var(--nwd-ink-rgb) !important;
+  --WDS-content-deemphasized: var(--nwd-muted) !important;
+  --WDS-content-deemphasized-RGB: var(--nwd-ink-rgb) !important;
+  --WDS-content-disabled: var(--nwd-disabled) !important;
+  --WDS-content-inverse: var(--nwd-inverse) !important;
+  --WDS-systems-bubble-content-deemphasized: var(--nwd-meta) !important;
+  --WDS-systems-bubble-content-deemphasized-RGB: var(--nwd-ink-rgb) !important;
+  --WDS-systems-bubble-content-business: var(--nwd-meta) !important;
+  --WDS-systems-bubble-content-e2e: var(--nwd-meta) !important;
+  --WDS-lines-divider: var(--nwd-divider) !important;
+  --WDS-lines-divider-RGB: var(--nwd-ink-rgb) !important;
+  --WDS-lines-outline-deemphasized: var(--nwd-outline) !important;
+  --WDS-lines-outline-default: var(--nwd-muted) !important;
+}

@@ -1,0 +1,104 @@
+{
+  "extName": {
+    "message": "Quiet WhatsApp"
+  },
+  "extDescription": {
+    "message": "Oculta llamadas, estados, canales, comunidades y Meta AI en WhatsApp Web, difumina tu contenido privado y elige temas de color."
+  },
+  "enabled": {
+    "message": "Extensión activada"
+  },
+  "sectionHide": {
+    "message": "Ocultar"
+  },
+  "sectionBlur": {
+    "message": "Difuminar"
+  },
+  "all": {
+    "message": "Todo"
+  },
+  "none": {
+    "message": "Nada"
+  },
+  "hideCalls": {
+    "message": "Llamadas"
+  },
+  "hideStatus": {
+    "message": "Estados"
+  },
+  "hideChannels": {
+    "message": "Canales"
+  },
+  "hideCommunities": {
+    "message": "Comunidades"
+  },
+  "hideMetaAI": {
+    "message": "Meta AI"
+  },
+  "hideBadge": {
+    "message": "Contadores de notificaciones"
+  },
+  "blurText": {
+    "message": "Mensajes"
+  },
+  "blurTime": {
+    "message": "Hora y fecha"
+  },
+  "blurMedia": {
+    "message": "Fotos y vídeos"
+  },
+  "blurNames": {
+    "message": "Nombres"
+  },
+  "blurAvatars": {
+    "message": "Fotos de perfil"
+  },
+  "blurPreviews": {
+    "message": "Vista previa de chats"
+  },
+  "blurReveal": {
+    "message": "Revelar con el cursor"
+  },
+  "intensity": {
+    "message": "Intensidad"
+  },
+  "themes": {
+    "message": "Temas"
+  },
+  "back": {
+    "message": "Volver"
+  },
+  "themeDefault": {
+    "message": "Predeterminado"
+  },
+  "theme_snow": {
+    "message": "Nieve"
+  },
+  "theme_olive": {
+    "message": "Oliva"
+  },
+  "theme_lagoon": {
+    "message": "Laguna"
+  },
+  "theme_emerald": {
+    "message": "Esmeralda"
+  },
+  "theme_glacier": {
+    "message": "Glaciar"
+  },
+  "theme_rose": {
+    "message": "Rosa"
+  },
+  "theme_ember": {
+    "message": "Brasa"
+  },
+  "theme_amethyst": {
+    "message": "Amatista"
+  },
+  "theme_amber": {
+    "message": "Ámbar"
+  },
+  "theme_graphite": {
+    "message": "Grafito"
+  }
+}

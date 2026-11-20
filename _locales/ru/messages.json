@@ -1,0 +1,104 @@
+{
+  "extName": {
+    "message": "Quiet WhatsApp"
+  },
+  "extDescription": {
+    "message": "Скрывайте звонки, статусы, каналы, сообщества и Meta AI в WhatsApp Web, размывайте личное и выбирайте цветовые темы."
+  },
+  "enabled": {
+    "message": "Расширение включено"
+  },
+  "sectionHide": {
+    "message": "Скрыть"
+  },
+  "sectionBlur": {
+    "message": "Размыть"
+  },
+  "all": {
+    "message": "Всё"
+  },
+  "none": {
+    "message": "Ничего"
+  },
+  "hideCalls": {
+    "message": "Звонки"
+  },
+  "hideStatus": {
+    "message": "Статус"
+  },
+  "hideChannels": {
+    "message": "Каналы"
+  },
+  "hideCommunities": {
+    "message": "Сообщества"
+  },
+  "hideMetaAI": {
+    "message": "Meta AI"
+  },
+  "hideBadge": {
+    "message": "Счётчики уведомлений"
+  },
+  "blurText": {
+    "message": "Сообщения"
+  },
+  "blurTime": {
+    "message": "Время и дата"
+  },
+  "blurMedia": {
+    "message": "Фото и видео"
+  },
+  "blurNames": {
+    "message": "Имена"
+  },
+  "blurAvatars": {
+    "message": "Фото профиля"
+  },
+  "blurPreviews": {
+    "message": "Превью чатов"
+  },
+  "blurReveal": {
+    "message": "Показывать при наведении"
+  },
+  "intensity": {
+    "message": "Интенсивность"
+  },
+  "themes": {
+    "message": "Темы"
+  },
+  "back": {
+    "message": "Назад"
+  },
+  "themeDefault": {
+    "message": "По умолчанию"
+  },
+  "theme_snow": {
+    "message": "Снег"
+  },
+  "theme_olive": {
+    "message": "Олива"
+  },
+  "theme_lagoon": {
+    "message": "Лагуна"
+  },
+  "theme_emerald": {
+    "message": "Изумруд"
+  },
+  "theme_glacier": {
+    "message": "Ледник"
+  },
+  "theme_rose": {
+    "message": "Роза"
+  },
+  "theme_ember": {
+    "message": "Жар"
+  },
+  "theme_amethyst": {
+    "message": "Аметист"
+  },
+  "theme_amber": {
+    "message": "Янтарь"
+  },
+  "theme_graphite": {
+    "message": "Графит"
+  }
+}

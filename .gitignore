@@ -1,0 +1,20 @@
+# Paquetes generados (se crean con ./build.sh)
+dist/
+
+# Capturas de la tienda y originales: pueden mostrar chats, pestañas y datos personales
+store/originales/
+store/screenshot-*.png
+
+# Secretos y basura del sistema/editor
+.env
+.env.*
+*.pem
+*.key
+*.crx
+*.zip
+.DS_Store
+Thumbs.db
+.claude/
+.vscode/
+.idea/
+node_modules/
